@@ -3,7 +3,10 @@ import { IconButton, Menu, MenuItem } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useAuthCtx } from "~/contexts/AuthCtx";
+import NextLink from "next/link";
 
+//
+//
 const UserMenu = () => {
   const { user, logOut } = useAuthCtx();
   const { push } = useRouter();
@@ -58,7 +61,9 @@ const UserMenu = () => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <NextLink href="/profile">
+              <MenuItem onClick={handleClose}>Profile</MenuItem>
+            </NextLink>
             <MenuItem onClick={handleMyAccount}>My account</MenuItem>
             <MenuItem onClick={handleLogOut}>Sign Out</MenuItem>
           </Menu>
