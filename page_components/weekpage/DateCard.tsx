@@ -28,7 +28,9 @@ const DateCard: React.FC<DateCardI> = ({ date_id, post, handleClick }) => {
       variant="elevation"
       sx={{
         width: { xs: 60 },
-        backgroundColor: hasPost ? blue[50] : "",
+        backgroundColor: (theme) =>
+          hasPost ? theme.palette.primary.light : "",
+        color: hasPost ? "white" : "default",
         opacity: inFuture ? 0.2 : 1,
         boxShadow: isToday ? 4 : 1,
         border: 1,
@@ -46,7 +48,11 @@ const DateCard: React.FC<DateCardI> = ({ date_id, post, handleClick }) => {
           <Typography textAlign={"center"} color="">
             {format(date, "eee").toUpperCase()}
           </Typography>
-          <Typography textAlign={"center"} fontSize={"12px"} color="GrayText">
+          <Typography
+            textAlign={"center"}
+            fontSize={"12px"}
+            color={hasPost ? "white" : "GrayText"}
+          >
             {format(date, "MMM d")}
           </Typography>
         </Box>

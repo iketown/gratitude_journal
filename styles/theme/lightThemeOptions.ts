@@ -1,14 +1,13 @@
-// https://bareynol.github.io/mui-theme-creator/
-import { grey, brown } from "@mui/material/colors";
+import { ThemeOptions } from "@mui/material/styles";
 
-export const themeOptions = {
+export const themeOptions: ThemeOptions = {
   palette: {
-    type: "light",
+    // type: "light",
     primary: {
-      main: "#00695c",
+      main: "#607d8b",
     },
     secondary: {
-      main: "#f57c00",
+      main: "#f57f17",
     },
   },
   typography: {

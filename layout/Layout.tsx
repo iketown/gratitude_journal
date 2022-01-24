@@ -78,7 +78,7 @@ const Layout: React.FC = ({ children }) => {
         <Divider />
         <WeekList />
         <Divider />
-        <List>
+        {/* <List>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
@@ -87,7 +87,7 @@ const Layout: React.FC = ({ children }) => {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       <Main open={open} sx={{ p: { xs: 0, sm: 2, md: 3 } }}>
         <DrawerHeader />

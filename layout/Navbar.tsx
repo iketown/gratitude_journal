@@ -25,10 +25,12 @@ const Navbar: React.FC<NavbarI> = ({ open, handleDrawerOpen }) => {
   return (
     <AppBar
       position="fixed"
-      sx={{
-        backgroundColor: grey[200],
-        color: (th) => th.palette.text.primary,
-      }}
+      sx={
+        {
+          // backgroundColor: grey[200],
+          // color: (th) => th.palette.text.primary,
+        }
+      }
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box display="flex" alignItems="center">
