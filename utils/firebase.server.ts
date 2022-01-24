@@ -11,6 +11,7 @@ import {
 if (!admin.apps.length) {
   const firebase_service_account_key = process.env.FB_SAK!;
   const serviceAccount = JSON.parse(firebase_service_account_key);
+
   initializeAdminApp({
     credential: cert(serviceAccount),
     databaseURL: "https://sparks-33f0a.firebaseio.com",
