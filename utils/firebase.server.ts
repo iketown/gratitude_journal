@@ -9,12 +9,9 @@ import {
 } from "firebase-admin/app";
 //
 if (!admin.apps.length) {
-  const credential = JSON.parse(
-    Buffer.from(
-      process.env.GOOGLE_APPLICATION_CREDENTIALS!,
-      "base64"
-    ).toString()
-  );
+  const GAC = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!GAC) throw new Error("no GAC found!");
+  const credential = JSON.parse(Buffer.from(GAC, "base64").toString());
   // const firebase_service_account_key = process.env.FB_SAK!;
   // const serviceAccount = JSON.parse(firebase_service_account_key);
 
