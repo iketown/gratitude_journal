@@ -7,7 +7,7 @@ import {
   cert,
   initializeApp as initializeAdminApp,
 } from "firebase-admin/app";
-
+//
 if (!admin.apps.length) {
   const firebase_service_account_key = process.env.FB_SAK!;
   const serviceAccount = JSON.parse(firebase_service_account_key);
