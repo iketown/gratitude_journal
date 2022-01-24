@@ -9,12 +9,10 @@ import {
 } from "firebase-admin/app";
 
 if (!admin.apps.length) {
-  const googleAppCredString = process.env.GOOGLE_APPLICATION_CREDENTIALS!;
-  const credential = JSON.parse(
-    Buffer.from(googleAppCredString, "base64").toString()
-  );
+  const firebase_service_account_key = process.env.FB_SAK!;
+  const serviceAccount = JSON.parse(firebase_service_account_key);
   initializeAdminApp({
-    credential: cert(credential),
+    credential: cert(serviceAccount),
     databaseURL: "https://sparks-33f0a.firebaseio.com",
   });
 }
