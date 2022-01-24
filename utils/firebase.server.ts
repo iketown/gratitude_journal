@@ -9,11 +9,17 @@ import {
 } from "firebase-admin/app";
 //
 if (!admin.apps.length) {
-  const firebase_service_account_key = process.env.FB_SAK!;
-  const serviceAccount = JSON.parse(firebase_service_account_key);
+  const credential = JSON.parse(
+    Buffer.from(
+      process.env.GOOGLE_APPLICATION_CREDENTIALS!,
+      "base64"
+    ).toString()
+  );
+  // const firebase_service_account_key = process.env.FB_SAK!;
+  // const serviceAccount = JSON.parse(firebase_service_account_key);
 
   initializeAdminApp({
-    credential: cert(serviceAccount),
+    credential: cert(credential),
     databaseURL: "https://sparks-33f0a.firebaseio.com",
   });
 }
