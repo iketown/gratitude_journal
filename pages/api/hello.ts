@@ -3,7 +3,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
   name: string;
-  credential: any;
 };
 
 export default function handler(
@@ -11,6 +10,5 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   const GAC = process.env.GOOGLE_APPLICATION_CREDENTIALS!;
-  const credential = JSON.parse(Buffer.from(GAC, "base64").toString());
-  res.status(200).json({ name: "John Doe", credential });
+  res.status(200).json({ name: "John Doe" });
 }
