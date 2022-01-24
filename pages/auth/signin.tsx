@@ -181,26 +181,26 @@ export default function SignIn() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  try {
-    const { token } = nookies.get(ctx);
-    if (!token) return { props: { foo: "no token beeotch" } };
-    const user = await adminAuth.verifyIdToken(token);
-    const today = new Date();
-    const week = getWeek(today);
-    const year = getYear(today);
-    const date_id = format(today, "yyyy-MM-dd");
-    return {
-      redirect: {
-        //todo set this to this week
-        destination: `/weeks/${year}/${week}?date=${date_id}`,
-        permanent: false,
-      },
-    };
-  } catch (error) {
-    console.log("error authing person", error);
-    return {
-      props: { foo: "bar" },
-    };
-  }
-};
+// export const getServerSideProps: GetServerSideProps = async (ctx) => {
+//   try {
+//     const { token } = nookies.get(ctx);
+//     if (!token) return { props: { foo: "no token beeotch" } };
+//     const user = await adminAuth.verifyIdToken(token);
+//     const today = new Date();
+//     const week = getWeek(today);
+//     const year = getYear(today);
+//     const date_id = format(today, "yyyy-MM-dd");
+//     return {
+//       redirect: {
+//         //todo set this to this week
+//         destination: `/weeks/${year}/${week}?date=${date_id}`,
+//         permanent: false,
+//       },
+//     };
+//   } catch (error) {
+//     console.log("error authing person", error);
+//     return {
+//       props: { foo: "bar" },
+//     };
+//   }
+// };
