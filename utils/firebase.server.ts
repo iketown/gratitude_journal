@@ -24,14 +24,9 @@ export const adminDB = admin.firestore();
 export const getUser = async (
   ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
 ) => {
-  try {
-    const { token } = nookies.get(ctx);
-    if (!token) return null;
-    const decodedToken = await adminAuth.verifyIdToken(token);
-    return decodedToken;
-  } catch (error) {
-    return null;
-  }
+  const { token } = nookies.get(ctx);
+  const decodedToken = await adminAuth.verifyIdToken(token);
+  return decodedToken;
 };
 
 interface GetWeekPostsI {
