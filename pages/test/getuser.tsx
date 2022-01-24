@@ -5,7 +5,6 @@ import { getUser } from "~/utils/firebase.server";
 import { parseCookies } from "nookies";
 import { Button } from "@mui/material";
 import nookies from "nookies";
-import { json } from "stream/consumers";
 
 interface UserTestI {
   user?: User;
@@ -38,10 +37,9 @@ export default GetUserTest;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
-    const cookies = nookies.get(ctx);
     const foo = "bar";
     return {
-      props: { cookies, foo },
+      props: { foo },
     };
   } catch (error) {
     return {
