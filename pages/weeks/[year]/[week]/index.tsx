@@ -31,6 +31,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     };
   } catch (error) {
     return {
+      //@ts-ignore
       props: { error: error.message },
     };
   }
