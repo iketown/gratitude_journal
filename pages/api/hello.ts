@@ -1,13 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  name: string
-}
+  name: string;
+  credential: any;
+};
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  const GAC = process.env.GOOGLE_APPLICATION_CREDENTIALS!;
+  const credential = JSON.parse(Buffer.from(GAC, "base64").toString());
+  res.status(200).json({ name: "John Doe", credential });
 }

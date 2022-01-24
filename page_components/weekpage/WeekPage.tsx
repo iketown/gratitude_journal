@@ -12,7 +12,7 @@ import { useDateNav } from "~/hooks/useDateNav";
 import CommentInput from "./CommentInput";
 import DateCard from "./DateCard";
 import PostDisplay from "./PostDisplay";
-
+import axios from "axios";
 interface WeekNumPageI {
   user: DecodedIdToken;
   posts: { [date_id: string]: Post };
@@ -46,7 +46,9 @@ export const WeekPage: FC<WeekNumPageI> = ({
   const allPosts = { ...posts, ...recentUpdates };
   const date_id = selectedDate && format(selectedDate, "yyyy-MM-dd");
   const today_id = format(new Date(), "yyyy-MM-dd");
-
+  useEffect(() => {
+    axios.get("/api/hello").then((res) => console.log("axios", res.data));
+  }, []);
   useEffect(() => {
     if (!myTagSet) {
       return;
