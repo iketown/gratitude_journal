@@ -10,17 +10,13 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { GetServerSideProps } from "next";
 import NextLink from "next/link";
 import * as React from "react";
 import { Field, Form } from "react-final-form";
 import Copyright from "~/components/Copyright";
 import { useAuthCtx } from "~/contexts/AuthCtx";
-import { useToast } from "~/hooks/useToast";
-import nookies from "nookies";
-import { adminAuth } from "~/utils/firebase.server";
 import { useDateNav } from "~/hooks/useDateNav";
-import { format, getWeek, getYear } from "date-fns";
+import { useToast } from "~/hooks/useToast";
 
 interface FormValues {
   email: string;

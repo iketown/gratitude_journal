@@ -151,12 +151,11 @@ const AuthCtx = createContext<AuthCtxI>({
 export const AuthCtxProvider: FC = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [signedOut, setSignedOut] = useState<boolean>(false); // if loading user, different than if there is NO user.
-  const { pathname, push } = useRouter();
   const user_id = user?.uid || null;
   // handle auth logic;
   useEffect(() => {
     return onIdTokenChanged(getAuth(app), async (user) => {
-      console.log("id token changed", new Date().toTimeString());
+      console.log("id token changed", new Date().toTimeString(), user);
       if (!user) {
         setUser(null);
         setSignedOut(true);
