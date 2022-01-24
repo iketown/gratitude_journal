@@ -38,6 +38,7 @@ export const getWeekPosts = async ({ ctx, user }: GetWeekPostsI) => {
         posts[doc.id] = doc.data() as Post;
       })
     );
+
   return { startDate, endDate, posts, dates };
 };
 

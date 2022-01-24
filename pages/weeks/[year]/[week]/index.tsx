@@ -4,30 +4,36 @@ import { getUser } from "~/utils/firebase.server";
 import { getUserTagSet, getWeekPosts } from "~/utils/firebaseFxns";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const user = await getUser(ctx);
-  if (!user?.uid)
+  try {
+    const user = await getUser(ctx);
+    if (!user?.uid)
+      return {
+        redirect: {
+          destination: "/auth/signin",
+          permanent: false,
+        },
+      };
+    const user_id = user.uid;
+    const { posts, startDate, endDate, dates } = await getWeekPosts({
+      ctx,
+      user,
+    });
+    const myTagSet = await getUserTagSet(user_id);
     return {
-      redirect: {
-        destination: "/auth/signin",
-        permanent: false,
+      props: {
+        user,
+        posts,
+        startDate,
+        endDate,
+        dates,
+        myTagSet,
       },
     };
-  const user_id = user.uid;
-  const { posts, startDate, endDate, dates } = await getWeekPosts({
-    ctx,
-    user,
-  });
-  const myTagSet = await getUserTagSet(user_id);
-  return {
-    props: {
-      user,
-      posts,
-      startDate,
-      endDate,
-      dates,
-      myTagSet,
-    },
-  };
+  } catch (error) {
+    return {
+      props: { error: error.message },
+    };
+  }
 };
 
 export default WeekPage;

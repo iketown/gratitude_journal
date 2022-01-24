@@ -20,6 +20,7 @@ interface WeekNumPageI {
   endDate: string;
   dates: string[];
   myTagSet?: TagDoc;
+  error?: any;
 }
 
 export const WeekPage: FC<WeekNumPageI> = ({
@@ -29,16 +30,22 @@ export const WeekPage: FC<WeekNumPageI> = ({
   endDate,
   dates,
   myTagSet,
+  error,
 }) => {
   const { postRecordsByDate, recentUpdates } = usePostCtx();
   const { goToToday, goToDateId } = useDateNav();
-  const allPosts = { ...posts, ...recentUpdates };
   const { query } = useRouter();
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const { setMyTags, setTagIds } = useTagCtx();
   const [editing, setEditing] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  //
+  //
+  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
+  //
+  //
+  const allPosts = { ...posts, ...recentUpdates };
   const date_id = selectedDate && format(selectedDate, "yyyy-MM-dd");
   const today_id = format(new Date(), "yyyy-MM-dd");
-  const { setMyTags, setTagIds } = useTagCtx();
 
   useEffect(() => {
     if (!myTagSet) {

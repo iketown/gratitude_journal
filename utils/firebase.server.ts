@@ -1,7 +1,7 @@
 import type { GetServerSidePropsContext, PreviewData } from "next";
 import type { ParsedUrlQuery } from "querystring";
 import nookies from "nookies";
-import admin from "firebase-admin";
+import * as admin from "firebase-admin";
 
 //
 if (!admin.apps.length) {
