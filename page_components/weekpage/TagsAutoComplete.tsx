@@ -80,6 +80,10 @@ const TagsAutoComplete: FC<TagsAutoCompleteI> = ({
         }}
       />
       <Autocomplete
+        sx={{
+          backgroundColor: (theme) => theme.palette.background.paper,
+          mt: 2,
+        }}
         selectOnFocus
         clearOnBlur
         handleHomeEndKeys

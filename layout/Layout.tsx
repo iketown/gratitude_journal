@@ -22,7 +22,7 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
   open?: boolean;
 }>(({ theme, open }) => ({
   flexGrow: 1,
-  padding: theme.spacing(3),
+  // padding: theme.spacing(2),
   transition: theme.transitions.create("margin", {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -89,7 +89,7 @@ const Layout: React.FC = ({ children }) => {
           ))}
         </List>
       </Drawer>
-      <Main open={open}>
+      <Main open={open} sx={{ p: { xs: 0, sm: 2, md: 3 } }}>
         <DrawerHeader />
         {children}
       </Main>

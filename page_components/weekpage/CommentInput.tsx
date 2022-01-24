@@ -70,6 +70,7 @@ const CommentInput: React.FC<CommentInputI> = ({
     <div style={{ width: "100%" }}>
       <Box>{dateLine}</Box>
       <TextField
+        sx={{ backgroundColor: (th) => th.palette.background.paper }}
         fullWidth
         multiline
         value={comment}

@@ -1,4 +1,5 @@
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { format } from "date-fns";
 import type { DecodedIdToken } from "firebase-admin/lib/auth/token-verifier";
 import { useRouter } from "next/router";
@@ -65,42 +66,38 @@ export const WeekPage: FC<WeekNumPageI> = ({
     setEditing(true);
   };
   return (
-    <Container>
+    <Container sx={{ p: { xs: 0, md: 2 }, m: 0 }}>
       <Grid
         container
         columns={{ xs: 4, md: 7 }}
         spacing={2}
-        sx={{ justifyContent: "center" }}
+        sx={{ justifyContent: "center", p: { xs: 1 } }}
       >
         {dates?.map((date_id) => {
           const post = allPosts[date_id];
-          const [year] = date_id.split("-");
-
           return (
             <Grid item key={date_id}>
-              <div>
-                <DateCard
-                  key={date_id}
-                  date_id={date_id}
-                  post={post}
-                  handleClick={() => {
-                    setSelectedDate(new Date(`${date_id}T00:00`));
-                    goToDateId(date_id);
-                  }}
-                />
-              </div>
+              <DateCard
+                key={date_id}
+                date_id={date_id}
+                post={post}
+                handleClick={() => {
+                  setSelectedDate(new Date(`${date_id}T00:00`));
+                  goToDateId(date_id);
+                }}
+              />
             </Grid>
           );
         })}
       </Grid>
       <Box
-        mt={3}
+        mt={2}
         display="flex"
         sx={{
-          border: 1,
-          borderColor: "gainsboro",
+          border: { xs: 0, sm: "1px solid gainsboro" },
+          background: grey[100],
           borderRadius: "2rem",
-          height: "calc(100vh - 200px)",
+          height: "calc(100vh - 210px)",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-around",

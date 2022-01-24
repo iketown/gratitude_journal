@@ -13,7 +13,7 @@ export const TagBox: FC<TagBoxI> = ({ tag_ids }) => {
   return (
     <Box
       sx={{
-        bgcolor: "background.paper",
+        // bgcolor: "background.paper",
         padding: 0,
         display: "flex",
         alignItems: "center",

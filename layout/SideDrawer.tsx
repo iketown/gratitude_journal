@@ -17,6 +17,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { styled, useTheme } from "@mui/material/styles";
 import Navbar from "./Navbar";
 import WeekList from "./WeekList";
+import { grey } from "@mui/material/colors";
 
 export const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",

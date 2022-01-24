@@ -20,7 +20,7 @@ const PostDisplay: React.FC<PostDisplayI> = ({
   const { comment, tags } = post;
   const [warningOpen, setWarningOpen] = useState(false);
   return (
-    <Box>
+    <Box sx={{ mx: { xs: 1, sm: 2 } }}>
       <Box position={"relative"}>
         <Box
           display="flex"
@@ -43,6 +43,7 @@ const PostDisplay: React.FC<PostDisplayI> = ({
           p={3}
           minWidth={"20rem"}
           maxWidth={"70vw"}
+          sx={{ background: (th) => th.palette.background.paper }}
         >
           <Typography component={"p"} variant="body2">
             {comment.split("\n").map((par, i) => (

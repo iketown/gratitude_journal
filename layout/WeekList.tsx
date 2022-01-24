@@ -8,7 +8,7 @@ import {
   ListSubheader,
   Typography,
 } from "@mui/material";
-import { blueGrey, orange } from "@mui/material/colors";
+import { blueGrey, grey, orange } from "@mui/material/colors";
 import {
   add,
   endOfDay,
@@ -57,7 +57,7 @@ const WeekList = () => {
         sx={{
           width: "100%",
           maxWidth: 360,
-          bgcolor: "background.paper",
+          bgcolor: grey[50],
           position: "relative",
           overflow: "auto",
           maxHeight: "70vh",
@@ -74,7 +74,9 @@ const WeekList = () => {
             return (
               <li key={`section-${month_id}`}>
                 <ul>
-                  <ListSubheader>
+                  <ListSubheader
+                    sx={{ bgcolor: (th) => th.palette.borders.med }}
+                  >
                     <Typography
                       component={"span"}
                       color="CaptionText"

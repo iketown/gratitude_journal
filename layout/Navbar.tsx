@@ -13,6 +13,7 @@ import UserMenu from "~/components/UserMenu";
 import NextLink from "next/link";
 import { useDateNav } from "~/hooks/useDateNav";
 import { useAuthCtx } from "~/contexts/AuthCtx";
+import { grey } from "@mui/material/colors";
 
 interface NavbarI {
   open: boolean;
@@ -22,7 +23,13 @@ const Navbar: React.FC<NavbarI> = ({ open, handleDrawerOpen }) => {
   const { goToToday, thisIsToday } = useDateNav();
   const { user } = useAuthCtx();
   return (
-    <AppBar position="fixed" sx={{ color: "white" }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: grey[200],
+        color: (th) => th.palette.text.primary,
+      }}
+    >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box display="flex" alignItems="center">
           <IconButton

@@ -1,4 +1,5 @@
 // https://bareynol.github.io/mui-theme-creator/
+import { grey, brown } from "@mui/material/colors";
 
 export const themeOptions = {
   palette: {
@@ -8,6 +9,11 @@ export const themeOptions = {
     },
     secondary: {
       main: "#f57c00",
+    },
+    borders: {
+      dark: grey[300],
+      med: grey[200],
+      light: grey[50],
     },
   },
   typography: {
