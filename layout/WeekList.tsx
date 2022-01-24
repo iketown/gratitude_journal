@@ -74,9 +74,7 @@ const WeekList = () => {
             return (
               <li key={`section-${month_id}`}>
                 <ul>
-                  <ListSubheader
-                    sx={{ bgcolor: (th) => th.palette.borders.med }}
-                  >
+                  <ListSubheader sx={{ bgcolor: grey[100] }}>
                     <Typography
                       component={"span"}
                       color="CaptionText"

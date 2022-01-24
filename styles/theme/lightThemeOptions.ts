@@ -10,11 +10,6 @@ export const themeOptions = {
     secondary: {
       main: "#f57c00",
     },
-    borders: {
-      dark: grey[300],
-      med: grey[200],
-      light: grey[50],
-    },
   },
   typography: {
     fontFamily: "Raleway",
