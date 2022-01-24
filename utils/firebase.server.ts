@@ -2,23 +2,17 @@ import type { GetServerSidePropsContext, PreviewData } from "next";
 import type { ParsedUrlQuery } from "querystring";
 import nookies from "nookies";
 import admin from "firebase-admin";
-import {
-  applicationDefault,
-  cert,
-  initializeApp as initializeAdminApp,
-} from "firebase-admin/app";
+
 //
 if (!admin.apps.length) {
-  const GAC = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-  if (!GAC) throw new Error("no GAC found!");
+  const GAC = process.env.GOOGLE_APPLICATION_CREDENTIALS!;
   const credential = JSON.parse(Buffer.from(GAC, "base64").toString());
-  // const firebase_service_account_key = process.env.FB_SAK!;
-  // const serviceAccount = JSON.parse(firebase_service_account_key);
-
-  initializeAdminApp({
-    credential: cert(credential),
+  admin.initializeApp({
+    credential: admin.credential.cert(credential),
     databaseURL: "https://sparks-33f0a.firebaseio.com",
   });
+  // const firebase_service_account_key = process.env.FB_SAK!;
+  // const serviceAccount = JSON.parse(firebase_service_account_key);
 }
 // export const adminDB = admin.firestore();
 export const adminAuth = admin.auth();
