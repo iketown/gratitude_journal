@@ -1,7 +1,0 @@
-{
-    "build": {
-      "env": {
-        "GOOGLE_APPLICATION_CREDENTIALS": "@goog_app_creds_spark52"
-      }
-    }
-  }
